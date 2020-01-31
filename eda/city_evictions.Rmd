@@ -1,0 +1,35 @@
+---
+title: "City evictions EDA"
+author: "Julia Park"
+date: "`r Sys.Date()`"
+output: 
+  github_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE}
+# Libraries
+library(tidyverse)
+
+# Parameters
+file_evictions <- here::here("data/city_evictions.rds")
+
+#===============================================================================
+
+# Code
+city_evictions <- read_rds(file_evictions)
+```
+
+## Most evictions
+
+```{r}
+city_evictions %>% 
+  arrange(desc(evictions))
+```
+
+North Charleston has the most evictions.
+
